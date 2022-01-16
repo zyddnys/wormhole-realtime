@@ -106,17 +106,19 @@ void RenderIMGUI()
 
     {
         ImGui::Begin("Demo info");
+        ImGui::Text("Created by zyddnys (https://github.com/zyddnys)");
         ImGui::Text("Use WASD and mouse to move and look around");
         ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
         ImGui::Text("Client resolution: %ux%u", g_ClientWidth, g_ClientHeight);
-        ImGui::Text("cam_x: %f, cam_y: %f, cam_z: %f\ndir_x: %f, dir_y: %f, dir_z: %f\nl: %f\n",
+        ImGui::Text("cam_x: %f, cam_y: %f, cam_z: %f\ndir_x: %f, dir_y: %f, dir_z: %f",
                     g_Camera.GetPosition().x,
                     g_Camera.GetPosition().y,
                     g_Camera.GetPosition().z,
                     g_Camera.GetLookDir().x,
                     g_Camera.GetLookDir().y,
-                    g_Camera.GetLookDir().z,
-                    g_Camera.GetL());
+                    g_Camera.GetLookDir().z
+                    );
+        ImGui::Text("l: %f\n", g_Camera.GetL());
 
         ImGui::End();
     }
@@ -657,7 +659,7 @@ void Render()
         g_CommandList->RSSetViewports(1, &g_Viewport);
         g_CommandList->RSSetScissorRects(1, &g_ScissorRect);
 
-
+        //DirectX::XMVector2Dot
         g_ScreenQuad.Render(g_CommandList, g_SkymapDescriptorHeap, 3);
 
     }
